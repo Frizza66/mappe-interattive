@@ -111,9 +111,7 @@
     </header>
 
     <main>
-        <div class="griglia-mappe" id="grigliaMappe">
-            <!-- I pulsanti vengono generati automaticamente dallo script -->
-        </div>
+        <div class="griglia-mappe" id="grigliaMappe"></div>
     </main>
 
     <footer>
@@ -121,60 +119,30 @@
     </footer>
 
     <script>
-        /* ============================================================
-           AGGIUNGERE UNA NUOVA MAPPA
-           -----------------------------------------------
-           Copia un blocco { titolo, file } e incollalo qui sotto.
-           - titolo  : il testo che apparirà sul pulsante
-           - file    : il nome esatto del file .html (con estensione)
-           ============================================================ */
-        const mappe = [
-            {
-                titolo: "Monteverdi e il melodramma",
-                file: "monteverdi-melodramma.html"
-            },
-            {
-                titolo: "Mozart",
-                file: "mozart.html"
-            },
-            {
-                titolo: "Numeri relativi",
-                file: "numeri-relativi.html"
-            },
-            {
-                titolo: "Orientamento per la terza media",
-                file: "orientamento.html"
-            },
-            {
-                titolo: "Pitagora",
-                file: "pitagora.html"
-            },
-            {
-                titolo: "Scrittura musicale",
-                file: "scrittura-musicale.html"
-            },
-            {
-                titolo: "Il territorio del Friuli Venezia Giulia",
-                file: "territorio-fvg.html"
-            }
-            // 👇 AGGIUNGI QUI SOTTO LE NUOVE MAPPE, ES:
-            // {
-            //     titolo: "Titolo della nuova mappa",
-            //     file: "nuova-mappa.html"
-            // },
-        ];
+        document.addEventListener("DOMContentLoaded", function() {
 
-        // Generazione automatica dei pulsanti
-        const griglia = document.getElementById("grigliaMappe");
+            const mappe = [
+                { titolo: "Monteverdi e il melodramma", file: "monteverdi-melodramma.html" },
+                { titolo: "Mozart", file: "mozart.html" },
+                { titolo: "Numeri relativi", file: "numeri-relativi.html" },
+                { titolo: "Orientamento per la terza media", file: "orientamento.html" },
+                { titolo: "Pitagora", file: "pitagora.html" },
+                { titolo: "Scrittura musicale", file: "scrittura-musicale.html" },
+                { titolo: "Il territorio del Friuli Venezia Giulia", file: "territorio-fvg.html" }
+            ];
 
-        mappe.forEach(mappa => {
-            const link = document.createElement("a");
-            link.href = mappa.file;
-            link.className = "mappa-btn";
-            link.textContent = mappa.titolo;
-            link.setAttribute("target", "_blank");
-            link.setAttribute("rel", "noopener");
-            griglia.appendChild(link);
+            const griglia = document.getElementById("grigliaMappe");
+
+            mappe.forEach(function(mappa) {
+                var link = document.createElement("a");
+                link.href = mappa.file;
+                link.className = "mappa-btn";
+                link.textContent = mappa.titolo;
+                link.target = "_blank";
+                link.rel = "noopener";
+                griglia.appendChild(link);
+            });
+
         });
     </script>
 
