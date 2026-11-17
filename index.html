@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #C45B28; /* arancio mattone */
+            background-color: #C45B28;
             background-image: linear-gradient(135deg, #C45B28 0%, #D4763C 50%, #B84E20 100%);
             min-height: 100vh;
             display: flex;
@@ -129,40 +129,38 @@
            - file    : il nome esatto del file .html (con estensione)
            ============================================================ */
         const mappe = [
-    {
-        titolo: "Monteverdi e l'origine del melodramma",
-        file: "monteverdi-melodramma.html"
-    },
-    {
-        titolo: "Mozart",
-        file: "mozart.html"
-    },
-    {
-        titolo: "Dai neumi a Guido d'Arezzo",
-        file: "scrittura-musicale.html"
-    },
-    {
-        titolo: "Il territorio del Friuli Venezia Giulia",
-        file: "territorio-fvg.html"
-    },
-    {
-        titolo: "Numeri relativi",
-        file: "numeri-relativi.html"
-    },
-    {
-        titolo: "Orientamento per la terza media",
-        file: "orientamento.html"
-    },
-    {
-        titolo: "Pitagora e la musica",
-        file: "pitagora.html"
-    }
-];
+            {
+                titolo: "Monteverdi e il melodramma",
+                file: "monteverdi-melodramma.html"
+            },
+            {
+                titolo: "Mozart",
+                file: "mozart.html"
+            },
+            {
+                titolo: "Numeri relativi",
+                file: "numeri-relativi.html"
+            },
+            {
+                titolo: "Orientamento per la terza media",
+                file: "orientamento.html"
+            },
+            {
+                titolo: "Pitagora",
+                file: "pitagora.html"
+            },
+            {
+                titolo: "Scrittura musicale",
+                file: "scrittura-musicale.html"
+            },
+            {
+                titolo: "Il territorio del Friuli Venezia Giulia",
+                file: "territorio-fvg.html"
             }
             // 👇 AGGIUNGI QUI SOTTO LE NUOVE MAPPE, ES:
             // {
             //     titolo: "Titolo della nuova mappa",
-            //     file: "edumap-nuova-mappa.html"
+            //     file: "nuova-mappa.html"
             // },
         ];
 
@@ -174,7 +172,7 @@
             link.href = mappa.file;
             link.className = "mappa-btn";
             link.textContent = mappa.titolo;
-            link.setAttribute("target", "_blank");   // apre in nuova scheda
+            link.setAttribute("target", "_blank");
             link.setAttribute("rel", "noopener");
             griglia.appendChild(link);
         });
