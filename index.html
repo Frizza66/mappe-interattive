@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mappe interattive per la scuola secondaria di primo grado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #C45B28; /* arancio mattone */
+            background-image: linear-gradient(135deg, #C45B28 0%, #D4763C 50%, #B84E20 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+            line-height: 1.3;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header p {
+            margin-top: 12px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px 40px;
+        }
+
+        .griglia-mappe {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .mappa-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #fff;
+            color: #8B3A1A;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            min-height: 120px;
+            line-height: 1.4;
+        }
+
+        .mappa-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+            background-color: #FFF3E6;
+        }
+
+        .mappa-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            opacity: 0.85;
+            border-top: 2px solid rgba(255,255,255,0.2);
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+            .mappa-btn {
+                font-size: 1.1rem;
+                padding: 24px 16px;
+                min-height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mappe interattive per la scuola secondaria di primo grado</h1>
+        <p>Clicca su una mappa per aprirla</p>
+    </header>
+
+    <main>
+        <div class="griglia-mappe" id="grigliaMappe">
+            <!-- I pulsanti vengono generati automaticamente dallo script -->
+        </div>
+    </main>
+
+    <footer>
+        A cura della professoressa Angela Frizzarin
+    </footer>
+
+    <script>
+        /* ============================================================
+           AGGIUNGERE UNA NUOVA MAPPA
+           -----------------------------------------------
+           Copia un blocco { titolo, file } e incollalo qui sotto.
+           - titolo  : il testo che apparirà sul pulsante
+           - file    : il nome esatto del file .html (con estensione)
+           ============================================================ */
+        const mappe = [
+    {
+        titolo: "Monteverdi e l'origine del melodramma",
+        file: "monteverdi-melodramma.html"
+    },
+    {
+        titolo: "Mozart",
+        file: "mozart.html"
+    },
+    {
+        titolo: "Dai neumi a Guido d'Arezzo",
+        file: "scrittura-musicale.html"
+    },
+    {
+        titolo: "Il territorio del Friuli Venezia Giulia",
+        file: "territorio-fvg.html"
+    },
+    {
+        titolo: "Numeri relativi",
+        file: "numeri-relativi.html"
+    },
+    {
+        titolo: "Orientamento per la terza media",
+        file: "orientamento.html"
+    },
+    {
+        titolo: "Pitagora e la musica",
+        file: "pitagora.html"
+    }
+];
+            }
+            // 👇 AGGIUNGI QUI SOTTO LE NUOVE MAPPE, ES:
+            // {
+            //     titolo: "Titolo della nuova mappa",
+            //     file: "edumap-nuova-mappa.html"
+            // },
+        ];
+
+        // Generazione automatica dei pulsanti
+        const griglia = document.getElementById("grigliaMappe");
+
+        mappe.forEach(mappa => {
+            const link = document.createElement("a");
+            link.href = mappa.file;
+            link.className = "mappa-btn";
+            link.textContent = mappa.titolo;
+            link.setAttribute("target", "_blank");   // apre in nuova scheda
+            link.setAttribute("rel", "noopener");
+            griglia.appendChild(link);
+        });
+    </script>
+
+</body>
+</html>
